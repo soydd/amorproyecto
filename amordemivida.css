@@ -1,0 +1,883 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    color: #DDE3CA; /* Color de texto general para la sección de header (claro) */
+    overflow-x: hidden;
+    background-color: #DDE3CA;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #000;
+}
+h1{
+    background-color: #929586;
+    padding: 10px;
+    color: #5b5e53;
+}
+h2{
+    background-color: #929586;
+    padding: 10px;
+    color: #5b5b5b;
+    font-size: 50px;
+}
+h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #3D3C3B;
+    background-color: #DDE3CA;
+}
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: #5b5b5b;
+}
+/* --- HERO SECTION / GALERÍA DE IMÁGENES DE FONDO --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* GALERÍA DE IMÁGENES - Rutas sin 'imagenes/' */
+    background-image: url('fondo1.jpg');
+    animation: imageSlider 20s infinite ease-in-out;
+}
+
+@keyframes imageSlider {
+    0% { background-image: url('fondo1.jpg'); } 
+    25% { background-image: url('fondo2.jpg'); }
+    50% { background-image: url('fondo3.jpg'); }
+    75% { background-image: url('fondo4.jpg'); }
+    75% { background-image: url('fondo5.jpg'); }
+    75% { background-image: url('fondo6.jpg'); }
+    75% { background-image: url('fondo7.jpg'); }
+    100% { background-image: url('fondo1.jpg'); } 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurecimiento, puedes ajustar el 0.5 para más/menos */
+    z-index: 1; /* Para que esté por encima de la imagen pero debajo del contenido */
+}
+
+.header-content {
+    position: relative; /* Para que esté por encima del overlay */
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Espaciado interno */
+}
+
+.header-names {
+    color: #DDE3CA; /* Crema/Verde Muy Claro - Texto para nombres sobre fondo oscuro */
+    font-size: 4em; /* Más grande para que destaque */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para mejor legibilidad */
+    font-family: 'Georgia', serif; /* Tipo de letra más elegante, puedes cambiarlo */
+}
+
+/* --- Contador de Tiempo --- */
+.countdown-wrapper {
+    background-color: #929586; /* Azul Medio con transparencia */
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#contador-tiempo {
+    font-size: 1.6em;
+    border-collapse: collapse;
+}
+
+#contador-tiempo td {
+    padding: 8px 12px; /* Ajustado el padding */
+    vertical-align: top;
+    text-align: center;
+    border: none;
+}
+
+.valor {
+    font-weight: bold;
+    color: #DDE3CA; /* Crema/Verde Muy Claro - Números del contador */
+    font-size: 1.8em;
+    display: block;
+}
+
+.etiqueta {
+    font-size: 0.7em;
+    color: #5b5e53; /* Azul Claro - Etiquetas del contador */
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- Reproductor de Música Minimalista --- */
+.music-player-minimal {
+    width: 90%;
+    max-width: 400px; /* Tamaño máximo del reproductor */
+    background-color: rgba(61, 60, 59, 0.8); /* Gris Oscuro con transparencia */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progreso-volumen {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; /* Menos espacio entre barras y controles */
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px; /* Barras más delgadas */
+    background: #7C8071;
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .2s;
+    border-radius: 3px;
+    margin: 5px 0; /* Menos margen entre barras */
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px; /* Pulgar más pequeño */
+    height: 16px;
+    border-radius: 50%;
+    background: #B2D9F7; /* Azul Claro - Pulgar de la barra */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #B2D9F7;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.controles-audio-minimal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa el ancho completo del reproductor */
+}
+
+.controles-audio-minimal button {
+    background-color: #DDE3CA; /* Azul Medio - Botones */
+    color: #5b5b5b; /* Crema/Verde Muy Claro - Texto de los botones */
+    border: none;
+    padding: 8px 15px; /* Padding más pequeño */
+    margin: 0 6px; /* Margen ajustado */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Fuente más pequeña */
+    transition: background-color 0.3s ease;
+}
+
+.controles-audio-minimal button:hover {
+    background-color: #386A8D;
+}
+
+.controles-audio-minimal select {
+    padding: 6px; /* Padding más pequeño */
+    border-radius: 5px;
+    border: 1px solid #7C8071; /* Gris Verdoso - Borde del select */
+    font-size: 0.9em;
+    color: #DDE3CA; /* Texto del select */
+    background-color: #3D3C3B; /* Gris Oscuro - Fondo del select */
+    width: 120px; /* Ancho fijo para el select */
+    margin-left: 10px; /* Espacio con los botones */
+}
+
+/* --- Sección "Unas palabras para mi niña" --- */
+.about-section {
+    background-color: #DDE3CA; /* Crema/Verde Muy Claro - Fondo de la sección de texto */
+    padding: 50px 20px;
+    text-align: center;
+    color: #3D3C3B; /* Gris Oscuro - Color del texto para esta sección */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); /* Sombra superior */
+    border-color: #3D3C3B;
+}
+
+.section-title {
+    font-size: 2.8em;
+    color: #5b5e53; /* Azul Medio - Título de la sección */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-family: 'Georgia', serif;
+    font-size: 50px;
+}
+
+.text-content {
+    max-width: 800px;
+    margin: 0 auto; /* Centra el contenido */
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
+}
+
+.text-content p {
+    margin-bottom: 15px;
+    color: #3D3C3B; /* Asegura el color del párrafo */
+}
+
+/* Media Queries para responsividad (opcional pero recomendado) */
+@media (max-width: 768px) {
+    .header-names {
+        font-size: 3em;
+    }
+    #contador-tiempo {
+        font-size: 1.2em;
+    }
+    #contador-tiempo td {
+        padding: 5px 8px;
+    }
+    .valor {
+        font-size: 1.5em;
+    }
+    .music-player-minimal {
+        max-width: 300px;
+    }
+    .controles-audio-minimal button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+        margin: 0 4px;
+    }
+    .controles-audio-minimal select {
+        width: 100px;
+        font-size: 0.8em;
+    }
+    .section-title {
+        font-size: 2.2em;
+    }
+    .text-content {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-names {
+        font-size: 2.5em;
+    }
+    #contador-tiempo {
+        font-size: 1em;
+    }
+    #contador-tiempo td {
+        padding: 3px 5px;
+    }
+    .valor {
+        font-size: 1.2em;
+    }
+    .music-player-minimal {
+        padding: 10px;
+    }
+    .controles-audio-minimal button {
+        padding: 5px 10px;
+        font-size: 0.7em;
+        margin: 0 3px;
+    }
+    .controles-audio-minimal select {
+        width: 80px;
+        font-size: 0.7em;
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+}
+
+/* Estilos de la sección de la galería */
+.gallery-section {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #DDE3CA;
+}
+
+.gallery-title {
+    font-size: 2.5em;
+    color: #555;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', serif; /* Similares al de tu imagen */
+    font-size: 50px;
+}
+
+.gallery-subtitle {
+    font-size: 1.2em;
+    color: #5b5b5b;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de la galería de imágenes (el que crea la cuadrícula) */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+    gap: 15px; /* Espacio entre las imágenes */
+    max-width: 1200px; /* Ancho máximo de la galería */
+    margin: 0 auto; /* Centrar la galería */
+    padding: 0 15px;
+}
+
+/* Estilos para cada elemento de la galería (miniatura) */
+.gallery-item {
+    position: relative; /* Para posicionar el overlay */
+    overflow: hidden; /* Para que el zoom no se salga del contenedor */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out; /* Transición para el zoom */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio sin distorsionarse */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    transition: transform 0.3s ease-in-out; /* Transición para el zoom de la imagen */
+}
+
+/* Overlay para el oscurecimiento */
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Empieza transparente */
+    transition: background-color 0.3s ease-in-out; /* Transición para el oscurecimiento */
+    pointer-events: none; /* Permite que los clics pasen a la imagen */
+}
+
+/* Efectos al pasar el mouse por encima */
+.gallery-item:hover img {
+    transform: scale(1.05); /* Pequeño zoom */
+}
+
+.gallery-item:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.1); /* Oscurece un poco */
+}
+
+/* Estilos del Lightbox (ventana emergente) */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Incluye padding en el ancho/alto */
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    object-fit: contain; /* Ajusta la imagen dentro de los límites */
+    border: 5px solid white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima de la imagen del lightbox */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#lightbox-caption {
+    color: white;
+    font-size: 1.2em;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 992px) {
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+    .gallery-item img {
+        height: 200px; /* Ajusta la altura de las miniaturas */
+    }
+    .gallery-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-gallery {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+    .gallery-item img {
+        height: 180px; /* Ajusta aún más la altura para móviles */
+    }
+    .close-btn {
+        font-size: 30px;
+        top: 15px;
+        right: 20px;
+    }
+}
+
+
+/* ... (el resto de tu CSS anterior) ... */
+
+/* --- Nueva Sección de PDF --- */
+.pdf-section {
+    background-color: #DDE3CA; /* Azul Claro - Fondo para esta sección, puedes ajustarlo */
+    padding: 50px 20px;
+    text-align: center;
+    color: #3D3C3B; /* Gris Oscuro - Color del texto para esta sección */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra inferior */
+    margin-top: 20px; /* Un poco de espacio respecto a la sección anterior */
+}
+
+.pdf-title {
+    font-size: 2.5em;
+    color: #5b5e53; /* Azul Medio - Título del PDF */
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 50px;
+}
+
+.pdf-viewer-container {
+    max-width: 900px; /* Ancho máximo para el visor, ajusta a tu gusto */
+    height: 700px; /* Altura del contenedor del visor, ajusta si el PDF es más largo/corto */
+    margin: 0 auto; /* Centrar el contenedor */
+    border: 1px solid #7C8071; /* Borde sutil alrededor del visor */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para que destaque */
+    overflow: hidden; /* Oculta cualquier desbordamiento si el iframe se sale */
+}
+
+.pdf-viewer {
+    width: 100%; /* El iframe ocupa el 100% del ancho de su contenedor */
+    height: 100%; /* El iframe ocupa el 100% de la altura de su contenedor */
+    display: block; /* Elimina espacio extra debajo del iframe */
+}
+
+/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
+@media (max-width: 768px) {
+    .pdf-title {
+        font-size: 2em;
+    }
+    .pdf-viewer-container {
+        height: 500px; /* Menor altura en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-title {
+        font-size: 1.8em;
+    }
+    .pdf-viewer-container {
+        height: 400px; /* Aún menor altura en móviles */
+    }
+}
+
+/* ... (el resto de tu CSS anterior) ... */
+
+/* --- Nueva Sección de Galería de Videos --- */
+.video-gallery-section {
+    background-color: #DDE3CA; /* Crema/Verde Muy Claro - Fondo de la sección de texto */
+    padding: 50px 20px;
+    text-align: center;
+    color: #3D3C3B; /* Gris Oscuro - Color del texto para esta sección */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.video-gallery-title {
+    font-size: 2.8em;
+    color: #5b5b5b; /* Azul Medio - Título de la sección */
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 25px; /* Espacio entre videos */
+    max-width: 1200px; /* Ancho máximo de la cuadrícula */
+    margin: 0 auto; /* Centrar la cuadrícula */
+    padding: 0 15px; /* Pequeño padding a los lados */
+}
+
+.video-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que la imagen no se salga del borde redondeado */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.video-item img {
+    width: 100%;
+    height: 180px; /* Altura fija para las miniaturas, ajusta según necesidad */
+    object-fit: cover; /* Recorta la imagen para llenar el espacio sin distorsionar */
+    display: block;
+}
+
+.video-item .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em; /* Tamaño del icono */
+    color: #DDE3CA; /* Color del icono (crema) */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para el icono */
+    border-radius: 50%;
+    padding: 10px 20px; /* Padding para el círculo del play */
+    line-height: 1; /* Para centrar el texto verticalmente */
+    transition: background-color 0.3s ease;
+}
+
+.video-item:hover .play-icon {
+    background-color: rgba(72, 122, 161, 0.8); /* Azul transparente al pasar el ratón */
+}
+
+
+/* ... (el resto de tu CSS anterior, incluyendo estilos del modal genérico) ... */
+
+/* --- Nueva Sección de Galería de Videos --- */
+.video-gallery-section {
+    background-color: #DDE3CA; /* Crema/Verde Muy Claro - Fondo de la sección de texto */
+    padding: 50px 20px;
+    text-align: center;
+    color: #3D3C3B; /* Gris Oscuro - Color del texto para esta sección */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.video-gallery-title {
+    font-size: 2.8em;
+    color: #5b5b5b; /* Azul Medio - Título de la sección */
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 25px; /* Espacio entre videos */
+    max-width: 1200px; /* Ancho máximo de la cuadrícula */
+    margin: 0 auto; /* Centrar la cuadrícula */
+    padding: 0 15px; /* Pequeño padding a los lados */
+}
+
+.video-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que el contenido no se salga del borde redondeado */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #000; /* Fondo negro para el video thumbnail */
+}
+
+.video-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Estilos para la etiqueta <video> dentro de los thumbnails */
+.video-item video {
+    width: 100%;
+    height: 180px; /* Altura fija para los thumbnails, ajusta según necesidad */
+    object-fit: cover; /* Recorta el video para llenar el espacio sin distorsionar */
+    display: block;
+    filter: brightness(70%); /* Oscurece un poco el video/poster para que el play icon destaque */
+    transition: filter 0.3s ease;
+}
+
+.video-item:hover video {
+    filter: brightness(100%); /* Aclara al pasar el ratón */
+}
+
+.video-item .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em; /* Tamaño del icono */
+    color: #DDE3CA; /* Color del icono (crema) */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para el icono */
+    border-radius: 50%;
+    padding: 10px 20px; /* Padding para el círculo del play */
+    line-height: 1; /* Para centrar el texto verticalmente */
+    transition: background-color 0.3s ease;
+}
+
+.video-item:hover .play-icon {
+    background-color: #DDE3CA; /* Azul transparente al pasar el ratón */
+}
+
+
+/* --- Estilos Genéricos del Contenido del Modal (Aplicados al contenedor principal del modal) --- */
+/*
+   Este estilo se aplica a los DIVs con IDs #videoModal y #photoModal.
+   Si tu HTML es diferente (ej. el id está en el mismo div que la clase .modal-content),
+   ajusta los selectores en tu CSS y JS para que coincidan.
+   Según tu última corrección, asumimos que tus modales HTML se ven así:
+   <div id="videoModal"> <div class="modal-content">...</div> </div>
+   <div id="photoModal"> <div class="modal-content photo-modal-content">...</div> </div>
+*/
+#videoModal,
+#photoModal {
+    display: none; /* ¡CRÍTICO! Esto oculta el modal por defecto */
+    position: fixed; /* Permanece en la misma posición al desplazarse */
+    z-index: 1000; /* Alto z-index para estar por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.9); /* Fondo oscuro semitransparente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    /* animation: fadeIn 0.3s ease-out;  La animación se activa con JS al mostrarlo */
+}
+
+/* Estilos para el contenido que va dentro del modal (video o foto) */
+.modal-content {
+    background-color: #3D3C3B; /* Gris Oscuro - Fondo del contenido del modal */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative; /* Para posicionar el botón de cerrar */
+    max-width: 900px; /* Ancho máximo predeterminado, ajustado por JS o específicos */
+    width: 90%; /* Ancho responsivo */
+    max-height: 95vh; /* Altura máxima para evitar desbordamiento en pantallas altas */
+    display: flex; /* Para centrar el video/imagen dentro */
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho/alto */
+}
+
+
+/* --- Estilos del Botón de Cierre del Modal --- */
+.close-button {
+    color: #DDE3CA; /* Color de la 'x' */
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1001; /* Asegura que esté por encima del contenido del modal */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #DDE3CA; /* Azul Medio al pasar el ratón */
+    text-decoration: none;
+}
+
+
+/* Contenedor responsivo para el video (o imagen) dentro del modal */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (altura / ancho = 9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000; /* Fondo negro para el video */
+    width: 100%; /* Ocupa el 100% del contenedor */
+}
+
+.video-responsive video { /* APUNTA AL VIDEO, NO AL IFRAME */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; /* Elimina espacio extra debajo del video */
+}
+
+/* --- Animaciones para el Modal --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* --- SECCIÓN ESPECÍFICA: GALERÍA DE VIDEOS --- */
+.video-gallery-section {
+    background-color: #DDE3CA; /* Crema/Verde Muy Claro - Fondo de la sección de texto */
+    padding: 50px 20px;
+    text-align: center;
+    color: #3D3C3B; /* Gris Oscuro - Color del texto para esta sección */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.video-gallery-title {
+    font-size: 2.8em;
+    color: #487AA1; /* Azul Medio - Título de la sección */
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 50px;
+}
+
+.video-grid {
+    display: grid;
+    /* Para escritorio: 3 o 4 columnas si caben (280px min) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; /* Espacio entre videos */
+    max-width: 1200px; /* Ancho máximo de la cuadrícula */
+    margin: 0 auto; /* Centrar la cuadrícula */
+    padding: 0 15px; /* Pequeño padding a los lados */
+}
+
+.video-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que el contenido no se salga del borde redondeado */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #000; /* Fondo negro para el video thumbnail */
+}
+
+.video-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Estilos para la etiqueta <video> dentro de los thumbnails (la que se muestra en la cuadrícula) */
+.video-item video { 
+    width: 100%;
+    height: 180px; /* Altura fija para los thumbnails, ajusta según necesidad */
+    object-fit: cover; /* Recorta el video para llenar el espacio sin distorsionar */
+    display: block;
+    filter: brightness(70%); /* Oscurece un poco el video/poster para que el play icon destaque */
+    transition: filter 0.3s ease;
+}
+
+.video-item:hover video {
+    filter: brightness(100%); /* Aclara al pasar el ratón */
+}
+
+.video-item .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em; /* Tamaño del icono */
+    color: #DDE3CA; /* Color del icono (crema) */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para el icono */
+    border-radius: 50%;
+    padding: 10px 20px; /* Padding para el círculo del play */
+    line-height: 1; /* Para centrar el texto verticalmente */
+    transition: background-color 0.3s ease;
+}
+
+.video-item:hover .play-icon {
+    background-color: #DDE3CA; /* Azul transparente al pasar el ratón */
+}
+
+
+/* --- Media Queries para Responsividad de la GALERÍA DE VIDEOS --- */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2-3 columnas en tablet */
+        gap: 20px;
+    }
+    .video-item video { 
+        height: 150px;
+    }
+    .video-item .play-icon {
+        font-size: 2.5em;
+        padding: 8px 18px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        /* Fuerzas 2 columnas exactas en móviles (Opción 2) */
+        grid-template-columns: repeat(2, 1fr); 
+        /* Si prefieres flexible (1 o 2 columnas según espacio), usa: */
+        /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); */
+        gap: 10px;
+    }
+    .video-item video { 
+        height: 100px; /* Altura más pequeña para miniaturas en móvil */
+    }
+    .video-item .play-icon {
+        font-size: 1.5em;
+        padding: 5px 12px;
+    }
+    .video-gallery-title {
+        font-size: 1.8em;
+    }
+}
